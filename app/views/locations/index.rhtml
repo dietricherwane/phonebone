@@ -1,0 +1,6 @@
+<% for location in @locations %>
+  <p>
+    <%= link_to location.name, edit_location_path(location) %>
+  </p>
+<% end %>
+
