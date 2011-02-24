@@ -1,40 +1,106 @@
-<%= form_for(@locations) do |f| %>
+<script type="text/javascript" language="JavaScript">
+$(document).ready(function() {
+    $("#post_library_id").change(function() {
+      selected_text = this.options[this.selectedIndex].text;
+      $.ajax({
+	url: "http://localhost:3000/locations/custom",
+	type: "GET",
+        data: selected_text,
+        dataType: "json",
+        error: function(){ alert("error"); },
+        success: function(response, response_status, xhr) {
+          //alert("success");
+          //alert(response.address);
+          $(this).update_fields(response);         
+        }
+      });
+    });
+    $.fn.update_fields = function(response) {
+      if(response.name == undefined){
+        document.getElementById("name").value=
+        document.getElementById("address").value=
+        document.getElementById("email").value=
+        document.getElementById("telephone").value=
+        document.getElementById("fax").value=
+        document.getElementById("website").value="";
+      }
+      else{
+      document.getElementById("name").value = response.name;
+      document.getElementById("address").value = response.address;
+      document.getElementById("email").value = response.email;
+      document.getElementById("telephone").value = response.telephone;
+      document.getElementById("fax").value = response.fax;
+      document.getElementById("website").value = response.website;
+      }
+    }
+});
+</script>
 
+
+<table border="0">
+<%= form_for(@locations, :html => {:name => 'formulaire'}) do |f| %>
+ 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <tr><td><%= f.label :name %><br />
+    <%= f.text_field :name %></td></tr>
   </div>
   <div class="field">
-    <%= f.label :telephone %><br />
-    <%= f.text_field :telephone %>
+    <tr><td><%= f.label :address %><br />
+    <%= f.text_field :address %></td></tr>
   </div>
   <div class="field">
-    <%= f.label :fax %><br />
-    <%= f.text_field :fax %>
+    <tr><td><%= f.label :email %><br />
+    <%= f.text_field :email %></td></tr>
   </div>
   <div class="field">
-    <%= f.label :website %><br />
-    <%= f.text_field :website %>
+    <tr><td><%= f.label :telephone %><br />
+    <%= f.text_field :telephone %></td></tr>
   </div>
-   <div class="field">
-    <%= collection_select(:post, :library_id, @libraries, :id, :name) %>
+  <div class="field">
+    <tr><td><%= f.label :fax %><br />
+    <%= f.text_field :fax %></td></tr>
   </div>
+  <div class="field">
+    <tr><td><%= f.label :website %><br />
+    <%= f.text_field :website %></td></tr>
+  </div>
+  <tr><td><div class="field">
+    <p>    
+    <%= collection_select(:post, :library_id, @libraries, :id, :name, options ={:prompt => "-Select a library-"}) %>
+    </p>
+  </div></td></tr>
 <p>
   <div class="actions">
-    <%= f.submit %>
+    <tr><td><%= f.submit %></td></tr>
   </div>
 </p>
-
 <% end %>
+</table>
+
+<table border="0" style="position:absolute; left:400px; top:120px">
+  <form name="update">
+  <tr><td>Name<br/>
+    <input type="text" name="name" id="name" size="31">
+    </td></tr>
+  <tr><td>Address<br/>
+    <input type="text" name="address" id="address" size="31">
+    </td></tr>
+  <tr><td>Email<br/>
+    <input type="text" name="email" id="email" size="31">
+    </td></tr>
+  <tr><td>Telephone<br/>
+    <input type="text" name="telephone" id="telephone" size="31">
+    </td></tr>
+  <tr><td>Fax<br/>
+    <input type="text" name="fax" id="fax" size="31">
+    </td></tr>
+  <tr><td>Website<br/>
+    <input type="text" name="website" id="website" size="31">
+    </td></tr>
+  </form>
+</table>
 
 <p>
   <%= link_to 'Back...', locations_path %>
 </p>
+

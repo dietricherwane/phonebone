@@ -1,7 +1,9 @@
-Phonebone::Application.routes.draw do
+Phonebone::Application.routes.draw do |map|
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
   root :to => 'locations#index'
+  match 'locations/custom' => 'locations#custom', :via => :get
   resources :locations
   resources :libraries
   # Sample of regular route:
