@@ -3,7 +3,8 @@ $(document).ready(function() {
     $("#post_library_id").change(function() {
       selected_text = this.options[this.selectedIndex].text;
       $.ajax({
-	url: "http://localhost:3000/locations/custom",
+	//url: "http://localhost:3000/locations/custom",
+        url: "<%= url_for :action => 'custom', :controller => 'locations' %>",
 	type: "GET",
         data: selected_text,
         dataType: "json",

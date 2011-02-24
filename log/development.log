@@ -26952,3 +26952,90 @@ Started GET "/locations/1/edit" for 127.0.0.1 at Thu Feb 24 07:23:51 -0800 2011
  ORDER BY a.attnum
 Rendered locations/edit.rhtml within layouts/application (39.8ms)
 Completed 200 OK in 92ms (Views: 46.9ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/locations/1/edit" for 127.0.0.1 at Thu Feb 24 07:35:34 -0800 2011
+  Processing by LocationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (8.6ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"locations"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mLocation Load (9.5ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 1 LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"locations"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mLibrary Load (3.1ms)[0m  SELECT * FROM libraries where name ILIKE '%Soca Togo%'
+  [1m[36mLibrary Load (0.8ms)[0m  [1mSELECT "libraries".* FROM "libraries" WHERE (name ILIKE '%Soca Togo%')[0m
+  [1m[35mSQL (1.6ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"libraries"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered locations/edit.rhtml within layouts/application (44.2ms)
+Completed 200 OK in 130ms (Views: 52.5ms | ActiveRecord: 25.0ms)
+
+
+Started GET "/locations/custom?SOCA%20TOGO%20-%20JAGO,%20GINO,%20POMO" for 127.0.0.1 at Thu Feb 24 07:35:37 -0800 2011
+  Processing by LocationsController#custom as JSON
+  Parameters: {"SOCA TOGO - JAGO, GINO, POMO"=>nil}
+  [1m[36mSQL (1.5ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"libraries"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mLibrary Load (1.4ms)[0m  SELECT "libraries".* FROM "libraries" WHERE "libraries"."name" IN ('SOCA TOGO - JAGO, GINO, POMO', NULL)
+  [1m[36mSQL (1.6ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"libraries"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 56ms (Views: 1.8ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/locations/custom?SOCA%20TOGO%20-%20JAGO" for 127.0.0.1 at Thu Feb 24 07:35:39 -0800 2011
+  Processing by LocationsController#custom as JSON
+  Parameters: {"SOCA TOGO - JAGO"=>nil}
+  [1m[35mSQL (13.2ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"libraries"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mLibrary Load (0.7ms)[0m  [1mSELECT "libraries".* FROM "libraries" WHERE "libraries"."name" IN ('SOCA TOGO - JAGO', NULL)[0m
+  [1m[35mSQL (1.5ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"libraries"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered text template (0.0ms)
+Completed 200 OK in 65ms (Views: 2.0ms | ActiveRecord: 15.4ms)
+
+
+Started GET "/locations/custom?-Select%20a%20library-" for 127.0.0.1 at Thu Feb 24 07:35:42 -0800 2011
+  Processing by LocationsController#custom as JSON
+  Parameters: {"-Select a library-"=>nil}
+  [1m[36mSQL (1.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"libraries"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mLibrary Load (0.9ms)[0m  SELECT "libraries".* FROM "libraries" WHERE "libraries"."name" IN ('action', 'custom')
+Rendered text template (0.1ms)
+Completed 200 OK in 30ms (Views: 1.9ms | ActiveRecord: 2.8ms)
