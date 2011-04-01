@@ -4,6 +4,7 @@ Phonebone::Application.routes.draw do |map|
   # first created -> highest priority.
   root :to => 'locations#index'
   match 'locations/custom' => 'locations#custom', :via => :get
+  match 'libraries/crawler' => 'libraries#crawler', :via => :get
   resources :locations
   resources :libraries
   # Sample of regular route:

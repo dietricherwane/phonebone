@@ -1,0 +1,99 @@
+  [1m[36mSQL (0.6ms)[0m  [1mSET client_min_messages TO 'warning'[0m
+  [1m[35mSQL (4.3ms)[0m  SHOW client_min_messages
+  [1m[36mSQL (0.7ms)[0m  [1mSET client_min_messages TO 'panic'[0m
+  [1m[35mSQL (0.8ms)[0m  SET standard_conforming_strings = on
+  [1m[36mSQL (0.7ms)[0m  [1mSET client_min_messages TO 'warning'[0m
+  [1m[35mSQL (2.9ms)[0m  SET time zone 'UTC'
+  [1m[36mSQL (0.7ms)[0m  [1mSHOW TIME ZONE[0m
+  [1m[35mSQL (35.7ms)[0m  BEGIN
+  [1m[36mSQL (187.7ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"scrappers"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+PGError: ERROR:  relation "scrappers" does not exist
+LINE 4:              WHERE a.attrelid = '"scrappers"'::regclass
+                                        ^
+:             SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+              FROM pg_attribute a LEFT JOIN pg_attrdef d
+                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+             WHERE a.attrelid = '"scrappers"'::regclass
+               AND a.attnum > 0 AND NOT a.attisdropped
+             ORDER BY a.attnum
+  [1m[35mSQL (0.7ms)[0m  ROLLBACK
+  [1m[36mSQL (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"scrappers"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+PGError: ERROR:  relation "scrappers" does not exist
+LINE 4:              WHERE a.attrelid = '"scrappers"'::regclass
+                                        ^
+:             SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+              FROM pg_attribute a LEFT JOIN pg_attrdef d
+                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+             WHERE a.attrelid = '"scrappers"'::regclass
+               AND a.attnum > 0 AND NOT a.attisdropped
+             ORDER BY a.attnum
+  [1m[36mSQL (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35mSQL (0.8ms)[0m  BEGIN
+  [1m[36mSQL (1.6ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"scrappers"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+PGError: ERROR:  relation "scrappers" does not exist
+LINE 4:              WHERE a.attrelid = '"scrappers"'::regclass
+                                        ^
+:             SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+              FROM pg_attribute a LEFT JOIN pg_attrdef d
+                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+             WHERE a.attrelid = '"scrappers"'::regclass
+               AND a.attnum > 0 AND NOT a.attisdropped
+             ORDER BY a.attnum
+  [1m[35mSQL (0.6ms)[0m  ROLLBACK
+  [1m[36mSQL (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"scrappers"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+PGError: ERROR:  relation "scrappers" does not exist
+LINE 4:              WHERE a.attrelid = '"scrappers"'::regclass
+                                        ^
+:             SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+              FROM pg_attribute a LEFT JOIN pg_attrdef d
+                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+             WHERE a.attrelid = '"scrappers"'::regclass
+               AND a.attnum > 0 AND NOT a.attisdropped
+             ORDER BY a.attnum
+  [1m[36mSQL (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[36mSQL (0.6ms)[0m  [1mSET client_min_messages TO 'warning'[0m
+  [1m[35mSQL (1.3ms)[0m  SHOW client_min_messages
+  [1m[36mSQL (0.6ms)[0m  [1mSET client_min_messages TO 'panic'[0m
+  [1m[35mSQL (1.0ms)[0m  SET standard_conforming_strings = on
+  [1m[36mSQL (0.6ms)[0m  [1mSET client_min_messages TO 'warning'[0m
+  [1m[35mSQL (19.0ms)[0m  SET time zone 'UTC'
+  [1m[36mSQL (0.7ms)[0m  [1mSHOW TIME ZONE[0m
+  [1m[35mSQL (0.6ms)[0m  BEGIN
+  [1m[36mSQL (96.0ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"scrappers"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (0.7ms)[0m  ROLLBACK
+  [1m[36mSQL (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  ROLLBACK
+  [1m[36mSQL (2.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  ROLLBACK
+  [1m[36mSQL (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (533.1ms)[0m  ROLLBACK

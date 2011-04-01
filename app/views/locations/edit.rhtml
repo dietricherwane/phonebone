@@ -11,7 +11,6 @@ $(document).ready(function() {
         error: function(){ alert("error"); },
         success: function(response, response_status, xhr) {
           //alert("success");
-          //alert(response.address);
           $(this).update_fields(response);         
         }
       });
@@ -104,4 +103,5 @@ $(document).ready(function() {
 <p>
   <%= link_to 'Back...', locations_path %>
 </p>
+  
 

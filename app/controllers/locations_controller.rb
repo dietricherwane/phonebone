@@ -6,7 +6,6 @@ class LocationsController < ApplicationController
 
   def edit
     @locations = Location.find(params[:id])
-    @attributes = Library.find_by_sql("SELECT * FROM libraries where name ILIKE '%#{@locations.name}%'")
     @libraries = Library.where("name ILIKE '%#{@locations.name}%'")
   end
 
@@ -26,4 +25,5 @@ class LocationsController < ApplicationController
     @attributes = Library.where(:name => @selected_text).to_json.sub('[{"library":', '').sub('}]', '')
     render :text => @attributes
   end
+
 end
