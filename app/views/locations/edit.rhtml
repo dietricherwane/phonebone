@@ -3,14 +3,15 @@ $(document).ready(function() {
     $("#post_library_id").change(function() {
       selected_text = this.options[this.selectedIndex].text;
       $.ajax({
-	//url: "http://localhost:3000/locations/custom",
+	//url: "http://localhost:3000/locations/custom",      
         url: "<%= url_for :action => 'custom', :controller => 'locations' %>",
-	type: "GET",
+	//type: "GET",
         data: selected_text,
         dataType: "json",
         error: function(){ alert("error"); },
         success: function(response, response_status, xhr) {
           //alert("success");
+          //alert(response);
           $(this).update_fields(response);         
         }
       });
@@ -38,7 +39,7 @@ $(document).ready(function() {
 
 
 <table border="0">
-<%= form_for(@locations, :html => {:name => 'formulaire'}) do |f| %>
+<%= form_for(@location, :html => {:name => 'formulaire'}) do |f| %>
  
   <div class="field">
     <tr><td><%= f.label :name %><br />

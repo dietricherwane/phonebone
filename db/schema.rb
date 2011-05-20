@@ -14,24 +14,24 @@ ActiveRecord::Schema.define(:version => 20110217094925) do
 
   create_table "libraries", :force => true do |t|
     t.string   "name"
-    t.string   "address"
-    t.string   "telephone"
-    t.string   "fax"
-    t.string   "email"
-    t.string   "website"
+    t.string   "address",    :limit => 5000
+    t.string   "telephone",  :limit => 5000
+    t.string   "fax",        :limit => 5000
+    t.string   "email",      :limit => 5000
+    t.string   "website",    :limit => 5000
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "locations", :force => true do |t|
     t.string   "name"
-    t.string   "address"
+    t.string   "address",    :limit => 5000
     t.decimal  "longitude"
     t.decimal  "latitude"
-    t.string   "email"
-    t.string   "telephone"
-    t.string   "fax"
-    t.string   "website"
+    t.string   "email",      :limit => 5000
+    t.string   "telephone",  :limit => 5000
+    t.string   "fax",        :limit => 5000
+    t.string   "website",    :limit => 5000
     t.datetime "created_at"
     t.datetime "updated_at"
   end

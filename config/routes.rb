@@ -3,10 +3,10 @@ Phonebone::Application.routes.draw do |map|
   # The priority is based upon order of creation:
   # first created -> highest priority.
   root :to => 'locations#index'
-  match 'locations/custom' => 'locations#custom', :via => :get
-  match 'libraries/crawler' => 'libraries#crawler', :via => :get
-  resources :locations
+  match 'libraries/crawler' => 'libraries#crawler', :as => 'crawler'
+  match 'locations/custom' => 'locations#custom', :as => 'custom'
   resources :libraries
+  resources :locations  
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

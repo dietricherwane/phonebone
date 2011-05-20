@@ -3,13 +3,13 @@ class CreateLocations < ActiveRecord::Migration
   def self.up
     create_table :locations do |t|
       t.string   :name
-      t.string   :address
+      t.string   :address, :limit => 5000
       t.decimal  :longitude
       t.decimal  :latitude
-      t.string   :email
-      t.string   :telephone
-      t.string   :fax
-      t.string   :website
+      t.string   :email, :limit => 5000
+      t.string   :telephone, :limit => 5000
+      t.string   :fax, :limit => 5000
+      t.string   :website, :limit => 5000
       t.timestamps
     end
 
